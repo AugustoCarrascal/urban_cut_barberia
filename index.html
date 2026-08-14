@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Cut Barber — Barbería Moderna e Industrial</title>
+<meta name="description" content="Urban Cut Barber. Cortes con carácter. Reservá tu turno vía WhatsApp.">
+
+<link rel="icon" href="barbercut.jpg" type="image/jpeg">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts: Bebas Neue (display), Inter (body), JetBrains Mono (utility) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<script src="script.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-charcoal text-cream font-body antialiased">
+
+<!-- ============ HEADER / NAVBAR ============ -->
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300 bg-charcoal/95 backdrop-blur border-b border-steellight">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-20">
+
+    <!-- Logo -->
+    <a href="#home" class="flex items-center gap-2 focus-gold" aria-label="Urban Cut Barber — inicio">
+      <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="#c9972a" stroke-width="1.5"/>
+        <path d="M12 13 L28 27 M28 13 L12 27" stroke="#c9972a" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="13" r="2.3" fill="#ede6da"/>
+        <circle cx="12" cy="27" r="2.3" fill="#ede6da"/>
+      </svg>
+      <span class="font-display text-2xl md:text-3xl tracking-wide leading-none text-cream">URBAN <span class="text-gold">CUT</span></span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-9 font-mono text-xs uppercase tracking-widest text-creamdim" aria-label="Navegación principal">
+      <a href="#servicios" class="nav-link hover:text-gold focus-gold">Servicios</a>
+      <a href="#galeria" class="nav-link hover:text-gold focus-gold">Galería</a>
+      <a href="#precios" class="nav-link hover:text-gold focus-gold">Precios</a>
+      <a href="#ubicacion" class="nav-link hover:text-gold focus-gold">Ubicación</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/5491122334455?text=Hola%2C%20quiero%20agendar%20un%20turno%20en%20Urban%20Cut%20Barber"
+         target="_blank" rel="noopener"
+         class="hidden sm:inline-flex items-center gap-2 bg-gold hover:bg-goldlight text-charcoal font-mono text-xs uppercase tracking-widest font-semibold px-5 py-2.5 rounded-sm transition-colors focus-gold">
+        Agendar Cita
+      </a>
+
+      <!-- Hamburger -->
+      <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"
+        class="md:hidden w-10 h-10 grid place-items-center border border-steellight rounded-sm focus-gold">
+        <svg id="icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ede6da" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ede6da" stroke-width="2" stroke-linecap="round" class="hidden">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0 bg-charcoal border-t border-steellight" aria-label="Navegación móvil">
+    <div class="flex flex-col px-6 py-4 gap-4 font-mono text-sm uppercase tracking-widest text-creamdim">
+      <a href="#servicios" class="mobile-link py-1 hover:text-gold">Servicios</a>
+      <a href="#galeria" class="mobile-link py-1 hover:text-gold">Galería</a>
+      <a href="#precios" class="mobile-link py-1 hover:text-gold">Precios</a>
+      <a href="#ubicacion" class="mobile-link py-1 hover:text-gold">Ubicación</a>
+      <a href="https://wa.me/5491122334455?text=Hola%2C%20quiero%20agendar%20un%20turno%20en%20Urban%20Cut%20Barber"
+         target="_blank" rel="noopener"
+         class="mt-2 inline-flex justify-center items-center bg-gold text-charcoal font-semibold px-5 py-3 rounded-sm">
+        Agendar Cita
+      </a>
+    </div>
+  </nav>
+</header>
+
+<div class="stripe-divider mt-16 md:mt-20"></div>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative min-h-[92vh] flex items-center overflow-hidden grain">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1800&q=80"
+         alt="Interior industrial de la barbería Urban Cut con sillones de cuero y herramientas de corte"
+         class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/85 to-charcoal/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-charcoal/70 via-transparent to-charcoal/40"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8 w-full py-28 md:py-0">
+    <div class="max-w-2xl">
+      <p class="font-mono text-xs md:text-sm tracking-[0.3em] uppercase text-gold mb-5">Barbería · Taller de oficio · Est. 2020</p>
+      <h1 class="font-display text-6xl sm:text-7xl md:text-8xl leading-[0.9] tracking-wide text-cream">
+        CORTES CON<br><span class="text-gold">CARÁCTER.</span>
+      </h1>
+      <p class="mt-6 text-creamdim text-base md:text-lg max-w-md leading-relaxed">
+        Oficio de barbero clásico, herramientas de precisión y un ambiente industrial hecho para quienes no siguen tendencias, las marcan.
+      </p>
+
+      <div class="mt-9 flex flex-col sm:flex-row gap-4">
+        <a href="https://wa.me/5491122334455?text=Hola%2C%20quiero%20reservar%20un%20turno%20en%20Urban%20Cut%20Barber"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-3 bg-gold hover:bg-goldlight text-charcoal font-mono font-semibold text-sm uppercase tracking-widest px-7 py-4 rounded-sm transition-colors focus-gold">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.8-1-2.4-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3c-.9-1.4-1.4-3-1.4-4.7 0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.7 8.7-8.3 8.7z"/></svg>
+          Reservar turno vía WhatsApp
+        </a>
+        <a href="#precios" class="inline-flex items-center justify-center gap-2 border border-steellight hover:border-gold text-cream font-mono text-sm uppercase tracking-widest px-7 py-4 rounded-sm transition-colors focus-gold">
+          Ver precios
+        </a>
+      </div>
+
+      <div class="mt-12 flex items-center gap-6 text-creamdim font-mono text-xs uppercase tracking-widest">
+        <div>★★★★★ <span class="text-cream">4.9/5</span></div>
+        <div class="w-px h-4 bg-steellight"></div>
+        <div>+1200 cortes/mes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signature rotating badge -->
+  <div class="hidden lg:block absolute right-10 bottom-10 badge-spin opacity-90" aria-hidden="true">
+    <svg width="120" height="120" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="none" stroke="#c9972a" stroke-width="1"/>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="#c9972a" stroke-width="1" stroke-dasharray="2 6"/>
+      <path id="circlePath" d="M60,14 a46,46 0 1,1 -0.1,0" fill="none"/>
+      <text font-family="JetBrains Mono" font-size="9" letter-spacing="3" fill="#e4b457">
+        <textPath href="#circlePath" startOffset="0%">URBAN CUT BARBER · OFICIO Y ESTILO ·</textPath>
+      </text>
+    </svg>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- ============ SERVICIOS Y PRECIOS ============ -->
+<section id="servicios" class="py-24 md:py-32 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-gold mb-3">Carta de servicios</p>
+        <h2 class="font-display text-5xl md:text-6xl tracking-wide">SERVICIOS &amp; <span class="text-gold">PRECIOS</span></h2>
+      </div>
+      <p class="text-creamdim max-w-sm text-sm leading-relaxed">Precios claros, sin sorpresas. Cada servicio incluye toalla caliente y remate a navaja.</p>
+    </div>
+
+    <div id="precios" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Card 1 -->
+      <div class="ticket bg-steel rounded-sm overflow-hidden flex flex-col">
+        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Corte de cabello clásico masculino" class="h-40 w-full object-cover">
+        <div class="p-6 flex flex-col flex-1 border-t border-dashed border-gold/30">
+          <h3 class="font-display text-2xl tracking-wide mb-1">CORTE DE CABELLO</h3>
+          <p class="text-creamdim text-sm mb-5 flex-1">Corte a tijera y máquina, lavado y styling final.</p>
+          <div class="flex items-end justify-between font-mono">
+            <span class="text-xs text-creamdim">⏱ 30 min</span>
+            <span class="text-2xl text-gold font-semibold">$6.500</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="ticket bg-steel rounded-sm overflow-hidden flex flex-col">
+        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=600&q=80" alt="Arreglo de barba con navaja" class="h-40 w-full object-cover">
+        <div class="p-6 flex flex-col flex-1 border-t border-dashed border-gold/30">
+          <h3 class="font-display text-2xl tracking-wide mb-1">ARREGLO DE BARBA</h3>
+          <p class="text-creamdim text-sm mb-5 flex-1">Perfilado, navaja y toalla caliente con aceites.</p>
+          <div class="flex items-end justify-between font-mono">
+            <span class="text-xs text-creamdim">⏱ 25 min</span>
+            <span class="text-2xl text-gold font-semibold">$5.000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 - Featured -->
+      <div class="ticket bg-leather/40 rounded-sm overflow-hidden flex flex-col ring-1 ring-gold/60 relative">
+        <span class="absolute top-3 right-3 bg-gold text-charcoal text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-1 rounded-sm z-10">Más pedido</span>
+        <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=600&q=80" alt="Combo VIP corte y barba" class="h-40 w-full object-cover">
+        <div class="p-6 flex flex-col flex-1 border-t border-dashed border-gold/40">
+          <h3 class="font-display text-2xl tracking-wide mb-1">COMBO VIP</h3>
+          <p class="text-creamdim text-sm mb-5 flex-1">Corte + barba + limpieza facial y bebida de cortesía.</p>
+          <div class="flex items-end justify-between font-mono">
+            <span class="text-xs text-creamdim">⏱ 60 min</span>
+            <span class="text-2xl text-gold font-semibold">$10.500</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="ticket bg-steel rounded-sm overflow-hidden flex flex-col">
+        <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=600&q=80" alt="Tinte y coloración masculina" class="h-40 w-full object-cover">
+        <div class="p-6 flex flex-col flex-1 border-t border-dashed border-gold/30">
+          <h3 class="font-display text-2xl tracking-wide mb-1">TINTE / COLOR</h3>
+          <p class="text-creamdim text-sm mb-5 flex-1">Coloración de canas o tono completo, producto premium.</p>
+          <div class="flex items-end justify-between font-mono">
+            <span class="text-xs text-creamdim">⏱ 45 min</span>
+            <span class="text-2xl text-gold font-semibold">$8.000</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- ============ GALERÍA ============ -->
+<section id="galeria" class="py-24 md:py-32 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="mb-14">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gold mb-3">Trabajo terminado</p>
+      <h2 class="font-display text-5xl md:text-6xl tracking-wide">NUESTRA <span class="text-gold">GALERÍA</span></h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
+      <!-- Repeated gallery items -->
+      <div class="gallery-item relative overflow-hidden aspect-square group cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=500&q=80" alt="Corte fade clásico" class="gallery-img w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 flex items-end p-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-gold">Fade Clásico</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden aspect-square group cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=500&q=80" alt="Barbero trabajando" class="gallery-img w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 flex items-end p-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-gold">Detalle a navaja</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden aspect-square group cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=500&q=80" alt="Interior de la barbería" class="gallery-img w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 flex items-end p-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-gold">Nuestro espacio</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden aspect-square group cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1587909209111-5097ee578ec3?auto=format&fit=crop&w=500&q=80" alt="Herramientas de barbería" class="gallery-img w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 flex items-end p-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-gold">Herramientas</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden aspect-square group cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=500&q=80" alt="Barbería estilo industrial" class="gallery-img w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 flex items-end p-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-gold">Sillón vintage</span>
+        </div>
+      </div>
+      <div class="gallery-item relative overflow-hidden aspect-square group cursor-pointer">
+        <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=500&q=80" alt="Corte de precisión" class="gallery-img w-full h-full object-cover">
+        <div class="gallery-overlay absolute inset-0 bg-charcoal/70 opacity-0 group-hover:opacity-100 flex items-end p-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-gold">Precisión al detalle</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- ============ TESTIMONIOS ============ -->
+<section class="py-24 md:py-32 bg-steel/40 relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+    <p class="font-mono text-xs uppercase tracking-[0.3em] text-gold mb-3">Reseñas de Google</p>
+    <h2 class="font-display text-5xl md:text-6xl tracking-wide mb-14">LO QUE DICEN <span class="text-gold">NUESTROS CLIENTES</span></h2>
+
+    <div class="relative">
+      <div class="overflow-hidden">
+        <div id="testi-track" class="testi-track flex">
+
+          <div class="w-full flex-shrink-0 px-4">
+            <div class="bg-charcoal border border-steellight rounded-sm p-8 md:p-12">
+              <div class="text-gold text-xl mb-4">★★★★★</div>
+              <p class="text-cream text-lg md:text-xl leading-relaxed font-light">"El mejor fade que me hicieron en la ciudad. Ambiente increíble y atención de primera, se nota el oficio."</p>
+              <p class="mt-6 font-mono text-xs uppercase tracking-widest text-creamdim">— Martín G. · Google Reviews</p>
+            </div>
+          </div>
+
+          <div class="w-full flex-shrink-0 px-4">
+            <div class="bg-charcoal border border-steellight rounded-sm p-8 md:p-12">
+              <div class="text-gold text-xl mb-4">★★★★★</div>
+              <p class="text-cream text-lg md:text-xl leading-relaxed font-light">"Fui por el combo VIP y no me arrepiento. Puntualidad, buena onda y resultado impecable en la barba."</p>
+              <p class="mt-6 font-mono text-xs uppercase tracking-widest text-creamdim">— Facundo R. · Google Reviews</p>
+            </div>
+          </div>
+
+          <div class="w-full flex-shrink-0 px-4">
+            <div class="bg-charcoal border border-steellight rounded-sm p-8 md:p-12">
+              <div class="text-gold text-xl mb-4">★★★★★</div>
+              <p class="text-cream text-lg md:text-xl leading-relaxed font-light">"Encontré mi barbería fija. La decoración industrial y la música hacen que dan ganas de quedarse."</p>
+              <p class="mt-6 font-mono text-xs uppercase tracking-widest text-creamdim">— Julián P. · Google Reviews</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button id="testi-prev" aria-label="Reseña anterior" class="focus-gold absolute -left-2 md:-left-14 top-1/2 -translate-y-1/2 w-10 h-10 grid place-items-center rounded-full border border-steellight hover:border-gold text-cream hover:text-gold transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button id="testi-next" aria-label="Reseña siguiente" class="focus-gold absolute -right-2 md:-right-14 top-1/2 -translate-y-1/2 w-10 h-10 grid place-items-center rounded-full border border-steellight hover:border-gold text-cream hover:text-gold transition-colors">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <div id="testi-dots" class="flex justify-center gap-2 mt-8"></div>
+  </div>
+</section>
+
+<div class="stripe-divider"></div>
+
+<!-- ============ UBICACIÓN Y HORARIOS ============ -->
+<section id="ubicacion" class="py-24 md:py-32 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-start">
+
+    <div>
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-gold mb-3">Encontranos</p>
+      <h2 class="font-display text-5xl md:text-6xl tracking-wide mb-8">UBICACIÓN &amp; <span class="text-gold">HORARIOS</span></h2>
+
+      <div class="space-y-6 mb-10">
+        <div class="flex gap-4">
+          <svg class="flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9972a" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p class="text-creamdim">Av. Corrientes 1234, CABA, Buenos Aires, Argentina</p>
+        </div>
+        <div class="flex gap-4">
+          <svg class="flex-shrink-0 mt-1" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c9972a" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.4 2.1L8 10.1a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.6 2z"/></svg>
+          <p class="text-creamdim">+54 9 11 2233-4455</p>
+        </div>
+      </div>
+
+      <div class="bg-steel border border-steellight rounded-sm overflow-hidden">
+        <table class="w-full font-mono text-sm">
+          <tbody class="divide-y divide-steellight">
+            <tr class="flex justify-between px-6 py-4"><td class="text-creamdim uppercase tracking-widest">Lunes — Viernes</td><td class="text-cream">10:00 – 20:00</td></tr>
+            <tr class="flex justify-between px-6 py-4"><td class="text-creamdim uppercase tracking-widest">Sábados</td><td class="text-cream">09:00 – 18:00</td></tr>
+            <tr class="flex justify-between px-6 py-4"><td class="text-creamdim uppercase tracking-widest">Domingos</td><td class="text-gold">Cerrado</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a href="https://wa.me/5491122334455?text=Hola%2C%20quiero%20agendar%20un%20turno%20en%20Urban%20Cut%20Barber"
+         target="_blank" rel="noopener"
+         class="mt-8 inline-flex items-center justify-center gap-2 bg-gold hover:bg-goldlight text-charcoal font-mono font-semibold text-sm uppercase tracking-widest px-7 py-4 rounded-sm transition-colors focus-gold">
+        Reservar mi turno
+      </a>
+    </div>
+
+    <div class="rounded-sm overflow-hidden border border-steellight aspect-[4/3] lg:aspect-auto lg:h-full min-h-[360px]">
+      <iframe
+        title="Ubicación de Urban Cut Barber en el mapa"
+        src="https://www.google.com/maps?q=barber%20shop%20Buenos%20Aires&output=embed"
+        class="w-full h-full grayscale-[40%] contrast-125"
+        style="border:0; min-height:360px;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-steel border-t border-steellight">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 grid md:grid-cols-3 gap-10">
+
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <svg width="26" height="26" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#c9972a" stroke-width="1.5"/><path d="M12 13 L28 27 M28 13 L12 27" stroke="#c9972a" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="13" r="2.3" fill="#ede6da"/><circle cx="12" cy="27" r="2.3" fill="#ede6da"/></svg>
+        <span class="font-display text-2xl tracking-wide">URBAN <span class="text-gold">CUT</span></span>
+      </div>
+      <p class="text-creamdim text-sm leading-relaxed max-w-xs">Barbería moderna e industrial. Oficio clásico, herramientas de precisión, estilo propio.</p>
+    </div>
+
+    <div>
+      <h3 class="font-mono text-xs uppercase tracking-widest text-gold mb-4">Navegación</h3>
+      <ul class="space-y-2 text-creamdim text-sm">
+        <li><a href="#servicios" class="hover:text-gold">Servicios</a></li>
+        <li><a href="#galeria" class="hover:text-gold">Galería</a></li>
+        <li><a href="#precios" class="hover:text-gold">Precios</a></li>
+        <li><a href="#ubicacion" class="hover:text-gold">Ubicación</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-mono text-xs uppercase tracking-widest text-gold mb-4">Seguinos</h3>
+      <div class="flex gap-3">
+        <a href="#" aria-label="Instagram" class="w-10 h-10 grid place-items-center border border-steellight rounded-full hover:border-gold hover:text-gold transition-colors focus-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook" class="w-10 h-10 grid place-items-center border border-steellight rounded-full hover:border-gold hover:text-gold transition-colors focus-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://wa.me/5491122334455" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-10 h-10 grid place-items-center border border-steellight rounded-full hover:border-gold hover:text-gold transition-colors focus-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.7-1.8-1-2.4-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.4z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3c1.4.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3c-.9-1.4-1.4-3-1.4-4.7 0-4.7 3.8-8.5 8.5-8.5s8.5 3.8 8.5 8.5-3.7 8.7-8.3 8.7z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-steellight">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-creamdim font-mono">
+      <p>© 2026 Urban Cut Barber. Todos los derechos reservados.</p>
+      <p>Diseño y desarrollo de página con fines demostrativos. Datos de contacto ficticios.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ JS ============ -->
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  let menuOpen = false;
+
+  function setMenu(open) {
+    menuOpen = open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    if (open) {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenu.style.opacity = '1';
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenu.style.opacity = '0';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+  }
+  setMenu(false);
+
+  menuBtn.addEventListener('click', () => setMenu(!menuOpen));
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  // Header shadow on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.classList.add('shadow-lg', 'shadow-black/40');
+    } else {
+      header.classList.remove('shadow-lg', 'shadow-black/40');
+    }
+  });
+
+  // Testimonials carousel
+  const track = document.getElementById('testi-track');
+  const slides = track.children.length;
+  const dotsWrap = document.getElementById('testi-dots');
+  let current = 0;
+  let autoTimer;
+
+  for (let i = 0; i < slides; i++) {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', 'Ir a la reseña ' + (i + 1));
+    dot.className = 'w-2.5 h-2.5 rounded-full transition-colors ' + (i === 0 ? 'bg-gold' : 'bg-steellight');
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  }
+
+  function updateDots() {
+    [...dotsWrap.children].forEach((d, i) => {
+      d.className = 'w-2.5 h-2.5 rounded-full transition-colors ' + (i === current ? 'bg-gold' : 'bg-steellight');
+    });
+  }
+
+  function goTo(index) {
+    current = (index + slides) % slides;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    updateDots();
+    resetAuto();
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 6000);
+  }
+
+  document.getElementById('testi-next').addEventListener('click', () => goTo(current + 1));
+  document.getElementById('testi-prev').addEventListener('click', () => goTo(current - 1));
+  resetAuto();
+
+  // Smooth-scroll offset correction for sticky header (native anchors already smooth via CSS)
+</script>
+
+</body>
+</html>
